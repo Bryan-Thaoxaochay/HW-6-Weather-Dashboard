@@ -1,0 +1,5 @@
+.container-fluid {
+    text-align: center; 
+    /* Text won't center */
+    color: white;
+}
