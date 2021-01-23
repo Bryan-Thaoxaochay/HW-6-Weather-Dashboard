@@ -35,21 +35,32 @@
                     <input type="text" class="form-control">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
                 </div>
+
+                <table class="table">
+                    <tbody id="tbody">
+                        <!-- Append search history here with <tr> -->
+                    </tbody>
+                </table>
             </div>
-
+        
+            <!-- Container on right that displays city and weather -->
             <div class="col-md-8">
-                <main id="weatherBox">
-
+                <main id="weather-box">
+                    <h3 id="city-name"></h3>
+                        <ol id="city-info">
+                            <!-- Temperature -->
+                            <!-- Humidity -->
+                            <!-- Wind Speed -->
+                            <!-- UV Index -->
+                        </ol>
                 </main>
+
+                <!-- Image of the 5 day forecast appends here -->
+                <img id="five-day">
 
             </div>
 
         </div>
-
-        <!-- Container on right that displays city and weather -->
-
-        <!-- Container below that displays the forecast for next five days -->
-
     </div>
     
 
