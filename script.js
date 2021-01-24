@@ -19,3 +19,22 @@
 
 var apiKey = "6b8354596eeef05a9add5fcdc34efb38"
 var queryURL = "http://maps.openweathermap.org/maps/2.0/weather/appid=" + apiKey
+
+$(".button").click(function(){
+    alert("Hello!");
+
+    // Ajax Call
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response); // API key hasn't been approved
+
+        // Get date, temp, humidity, wind, and UV index
+
+        // Get 5-day forecast
+
+        // Append search history and the local storage
+    })
+
+})
