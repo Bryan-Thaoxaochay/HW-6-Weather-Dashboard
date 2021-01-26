@@ -18,8 +18,6 @@
 // THEN I am presented with the last searched city forecast
 
 
-
-
 $(".button").click(function(){
     alert("Hello!");
 
@@ -50,11 +48,18 @@ $(".button").click(function(){
         }).then(function(onecall){
         
             console.log(onecall);
-        // Get date, temp, humidity, wind, and UV index
+        // Get date, temp, humidity, wind, and UV index from object
         var tempK = onecall.current.temp;
         var humidity = onecall.current.humidity;
         var windSpeed = onecall.current.wind_speed;
         var UV = onecall.current.uvi;
+
+        // Attaching variables to HTML
+        $("#weather-box").append($("<li>").html("<b> Temperature: </b>" + tempK + " &#8457"));
+        $("#weather-box").append($("<li>").html("<b> Humidity: </b>" + humidity + " %"));
+        $("#weather-box").append($("<li>").html("<b> Wind Speed: </b>" + windSpeed + " mph"));
+        $("#weather-box").append($("<li>").html("<b> UV Index: </b>" + UV));
+
 
         console.log(tempK);
         console.log(humidity);
