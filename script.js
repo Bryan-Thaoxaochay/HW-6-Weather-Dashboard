@@ -19,14 +19,13 @@
 
 
 $(".button").click(function(){
-    alert("Hello!");
 
     var apiKey = "6b8354596eeef05a9add5fcdc34efb38";
     var city = $("#searchBox").val();
     var weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
 
 
-    // Ajax Call
+    // Ajax Call: API for longitude and latitude
     $.ajax({
         url: weatherURL,
         method: "GET"
@@ -35,36 +34,38 @@ $(".button").click(function(){
         var latitude = weather.coord.lat;
         var longitude = weather.coord.lon;
 
-        console.log(weather);
-        console.log(latitude);
-        console.log(longitude);
-
         var onecallURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey
 
-
+        // Ajax Call: API for rest of weather info
         $.ajax({
             url: onecallURL,
             method: "GET"
         }).then(function(onecall){
         
-            console.log(onecall);
-        // Get date, temp, humidity, wind, and UV index from object
+        // Get temp, humidity, wind, and UV index from object
         var tempK = onecall.current.temp;
         var humidity = onecall.current.humidity;
         var windSpeed = onecall.current.wind_speed;
         var UV = onecall.current.uvi;
 
-        // Attaching variables to HTML
-        $("#weather-box").append($("<li>").html("<b> Temperature: </b>" + tempK + " &#8457"));
-        $("#weather-box").append($("<li>").html("<b> Humidity: </b>" + humidity + " %"));
-        $("#weather-box").append($("<li>").html("<b> Wind Speed: </b>" + windSpeed + " mph"));
-        $("#weather-box").append($("<li>").html("<b> UV Index: </b>" + UV));
+        console.log(onecall);
 
+        // Attaching weather variables to HTML
+        var cityName = $("#city-name").append(city);
+        $("#city-info").append($("<li>").html("<b> Temperature: </b>" + tempK + " &#8457"));
+        $("#city-info").append($("<li>").html("<b> Humidity: </b>" + humidity + " %"));
+        $("#city-info").append($("<li>").html("<b> Wind Speed: </b>" + windSpeed + " mph"));
+        $("#city-info").append($("<li>").html("<b> UV Index: </b>" + UV));
 
-        console.log(tempK);
-        console.log(humidity);
-        console.log(windSpeed);
-        console.log(UV);
+        // Getting and attaching date to HTML
+        var date = new Date();
+
+        var currentMonth = date.toLocaleString('default', { month: 'long' })
+        var currentDay = date.getDate();
+        var currentYear = date.getFullYear();
+
+        $(cityName).append(", " + currentMonth + " " + currentDay + ", " + currentYear);
+
 
         // Get 5-day forecast
         
