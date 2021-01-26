@@ -17,22 +17,53 @@
 // WHEN I open the weather dashboard
 // THEN I am presented with the last searched city forecast
 
-var apiKey = "6b8354596eeef05a9add5fcdc34efb38"
-var queryURL = "http://maps.openweathermap.org/maps/2.0/weather/appid=" + apiKey
+var apiKey = "6b8354596eeef05a9add5fcdc34efb38";
+var city = "Minneapolis";
+var weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+
 
 $(".button").click(function(){
     alert("Hello!");
 
     // Ajax Call
     $.ajax({
-        url: queryURL,
+        url: weatherURL,
         method: "GET"
-    }).then(function(response){
-        console.log(response); // API key hasn't been approved
+    }).done(function(weather){
 
+        var latitude = weather.coord.lat;
+        var longitude = weather.coord.lon;
+
+        console.log(weather);
+        console.log(latitude);
+        console.log(longitude);
+
+        var onecallURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey
+
+
+        $.ajax({
+            url: onecallURL,
+            method: "GET"
+        }).then(function(onecall){
+        
+            console.log(onecall);
         // Get date, temp, humidity, wind, and UV index
+        var tempK = onecall.current.temp;
+        var humidity = onecall.current.humidity;
+        var windSpeed = onecall.current.wind_speed;
+        var UV = onecall.current.uvi;
+
+        console.log(tempK);
+        console.log(humidity);
+        console.log(windSpeed);
+        console.log(UV);
 
         // Get 5-day forecast
+        var dayOne = onecall.daily[0].weather.icon;
+        console.log(dayOne);
+
+        })
+        
 
         // Append search history and the local storage
     })
