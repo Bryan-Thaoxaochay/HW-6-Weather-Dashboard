@@ -76,8 +76,26 @@ $(".button").click(function(){
 
         
         // UV Index Indicator
-        $(UVbold).attr("class", "card");
+        $(UVbold).attr("class", "card bg-primary mb-3");
         $(UVbold).attr("style", "width: 1rem;");
+
+        // Low 0-2 (black): Moderate 3-5 (gray): High 6-7 (green): Very High: 8-10 (yellow): Extreme 11+ (red)
+        if (UV <= 2) {
+            $(UVbold).attr("class", "card text-white bg-dark mb-3");
+        }
+        else if (UV >=3 && UV <=5){
+            $(UVbold).attr("class", "card text-white bg-secondary mb-3");
+        }
+        else if (UV >=6 && UV <=7){
+            $(UVbold).attr("class", "card text-white bg-success mb-3");
+        }
+        else if (UV >=8 && UV <=10){
+            $(UVbold).attr("class", "card text-white bg-warning mb-3");
+        }
+        else {
+            $(UVbold).attr("class", "card text-white bg-danger mb-3");
+        }
+        
 
 
 
