@@ -17,13 +17,16 @@
 // WHEN I open the weather dashboard
 // THEN I am presented with the last searched city forecast
 
-var apiKey = "6b8354596eeef05a9add5fcdc34efb38";
-var city = "Minneapolis";
-var weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+
 
 
 $(".button").click(function(){
     alert("Hello!");
+
+    var apiKey = "6b8354596eeef05a9add5fcdc34efb38";
+    var city = $("#searchBox").val();
+    var weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+
 
     // Ajax Call
     $.ajax({
@@ -59,8 +62,7 @@ $(".button").click(function(){
         console.log(UV);
 
         // Get 5-day forecast
-        var dayOne = onecall.daily[0].weather.icon;
-        console.log(dayOne);
+        
 
         })
         
