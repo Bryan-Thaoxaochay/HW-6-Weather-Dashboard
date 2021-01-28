@@ -9,7 +9,9 @@ The purpose of this assignment was to create a weather website that can retrieve
 Double API Calls
 Practice with APIs
 Creating and adjusting cards
-Using moment
+Using moment.js and UNIX timestamps
+break()
+
 
 # Description
 

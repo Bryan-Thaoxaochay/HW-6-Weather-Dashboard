@@ -9,7 +9,7 @@
 // THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe - DONE
 
 // WHEN I view future weather conditions for that city
-// THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity - NEED DATE
+// THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity - DONE
 
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city - NEED TO ADD ONCLICK FUNCTION OF CITY BUTTONS
@@ -21,6 +21,7 @@ $(".button").click(function () {
 
     var apiKey = "6b8354596eeef05a9add5fcdc34efb38";
     var city = $("#searchBox").val().trim();
+    var capitalCity = city.charAt(0).toUpperCase() + city.slice(1);
     var weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
 
 
@@ -63,7 +64,7 @@ $(".button").click(function () {
                     $("#uv-index").empty();
 
                     // Attaching weather variables to HTML
-                    var cityName = $("#city-name").append(city);
+                    var cityName = $("#city-name").append(capitalCity);
                     $(date).append(icon);
                     $("#temp").append($("<p>").html("Temperature: " + tempF + " &#8457"));
                     $("#humidity").append($("<p>").html("Humidity: " + humidity + " %"));
@@ -71,6 +72,7 @@ $(".button").click(function () {
 
                     var UVbold = $("<p>").html(UV);
                     $("#uv-index").append(UVbold);
+                    console.log(UV);
 
 
 
@@ -95,7 +97,7 @@ $(".button").click(function () {
 
 
                     // UV Index Indicator
-                    $(UVbold).attr("class", "card bg-primary mb-3");
+                    $(UVbold).attr("class", "bg-primary mb-3");
                     $(UVbold).attr("style", "width: 1rem;");
 
                     // Low 0-2 (black): Moderate 3-5 (gray): High 6-7 (green): Very High: 8-10 (yellow): Extreme 11+ (red)
@@ -126,16 +128,17 @@ $(".button").click(function () {
 
                     for (var i = 0; i < onecall.daily.length; i++) {
 
+                        if (i > 4){
+                            break;
+                        }
+
                         var figure = $("<figure>");
                         $("#five-day").append(figure);
                         $(figure).attr("class", "card text-white bg-primary");
                         $(figure).attr("style", "width: 8rem;");
 
-                        var parseDate = toString(onecall.daily[i].sunrise);
-                        console.log(parseDate);
-                        var dailyDate = moment(parseDate).format("MM / DD / YY"); // Invalid Date
-                        console.log(onecall.daily[i].sunrise); // Brings back different values
-
+                        
+                        var dailyDate = moment(onecall.daily[i].dt * 1000).format("MM / DD / YY");
                         var dailyIcon = onecall.daily[i].weather[0].icon;
                         var dailyTempK = onecall.daily[i].temp.day;
                         var dailyTempF = $("<p>").html("Temp: " + (Math.round((dailyTempK * (9 / 5)) - 459.67) +
@@ -154,7 +157,7 @@ $(".button").click(function () {
                     }
 
                     // Append search history and the local storage
-                    var storingCity = $("#searchBox").val();
+                    var storingCity = $("#searchBox").val().trim().charAt(0).toUpperCase() +  $("#searchBox").val().slice(1);
                     localStorage.setItem("storingCity", storingCity);
 
                     for (var i = 0; i < localStorage.length; i++) {
