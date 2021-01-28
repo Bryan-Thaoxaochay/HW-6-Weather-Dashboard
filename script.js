@@ -114,6 +114,8 @@ $(".button").click(function () {
                 $("#five-day").append(figure);
                 $(figure).attr("class", "card text-white bg-primary");
                 $(figure).attr("style", "width: 8rem;");
+                $(figure).attr("style", "display: inline-block");
+
 
                 
                 var dailyDate = moment(onecall.daily[i].dt * 1000).format("MM / DD / YY");
@@ -231,6 +233,7 @@ $("#nav").click(function (event) {
             // UV Index Indicator
             $(UVbold).attr("class", "bg-primary mb-3");
             $(UVbold).attr("style", "width: 1rem;");
+            
 
             // Low 0-2 (black): Moderate 3-5 (gray): High 6-7 (green): Very High: 8-10 (yellow): Extreme 11+ (red)
             if (UV <= 2) {
@@ -268,6 +271,8 @@ $("#nav").click(function (event) {
                 $("#five-day").append(figure);
                 $(figure).attr("class", "card text-white bg-primary");
                 $(figure).attr("style", "width: 8rem;");
+                $(figure).attr("style", "display: inline-block");
+
 
                 
                 var dailyDate = moment(onecall.daily[i].dt * 1000).format("MM / DD / YY");
@@ -417,6 +422,8 @@ function loadLocalStorage() {
                 $("#five-day").append(figure);
                 $(figure).attr("class", "card text-white bg-primary");
                 $(figure).attr("style", "width: 8rem;");
+                $(figure).attr("style", "display: inline-block");
+
 
                 
                 var dailyDate = moment(onecall.daily[i].dt * 1000).format("MM / DD / YY");
