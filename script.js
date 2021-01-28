@@ -56,7 +56,7 @@ $(".button").click(function(){
         console.log(icon);
         
         
-        // Emptying values from previous city
+        // Emptying weather values from previous city
         $("#city-name").empty();
         $("#temp").empty();
         $("#humidity").empty();
@@ -66,9 +66,9 @@ $(".button").click(function(){
         // Attaching weather variables to HTML
         var cityName = $("#city-name").append(city);
         $(date).append(icon);
-        $("#temp").append($("<p>").html(tempF + " &#8457"));
-        $("#humidity").append($("<p>").html(humidity + " %"));
-        $("#wind-speed").append($("<p>").html(windSpeed + " mph"));
+        $("#temp").append($("<p>").html("Temperature: " + tempF + " &#8457"));
+        $("#humidity").append($("<p>").html("Humidity: " + humidity + " %"));
+        $("#wind-speed").append($("<p>").html("Wind Speed: " + windSpeed + " mph"));
 
         var UVbold = $("<p>").html(UV);
         $("#uv-index").append(UVbold);
@@ -83,6 +83,8 @@ $(".button").click(function(){
         var currentYear = date.getFullYear();
 
         var date = $(cityName).append(", " + currentMonth + " " + currentDay + ", " + currentYear);
+
+
 
         // Attaching icon
 
@@ -119,6 +121,9 @@ $(".button").click(function(){
 
 
         // Get 5-day forecast: date, icon, temp, and humidity
+
+        $("#five-day").empty(); // Removes previous cities forecast
+
         for (var i = 0; i < onecall.daily.length; i++){
 
             var figure = $("<figure>");
