@@ -16,12 +16,12 @@
 
     <body>
 
-        <!-- Navbar -->
-        <nav class="navbar navbar-light bg-dark">
+        <!-- Header -->
+        <header class="navbar navbar-light bg-dark">
             <div class="container-fluid text-center"> <!--Text won't center-->
             <h1>Weather Dashboard</h1>
             </div>
-        </nav>
+        </header>
 
         <br>
 
@@ -35,16 +35,14 @@
                         <button class="btn btn-outline-secondary button" type="button" id="button-addon2">Search</button>
                     </div>
 
-                    <!-- Table for search history -->
-                    <table class="card table">
-                        <tbody id="tbody">
-                            <!-- Append search history here with <tr> -->
-                        </tbody>
-                    </table>
+                    <!-- Navigation for search history -->
+                    <nav class="card" id="nav">
+                        <!-- Append search history here with <tr> -->
+                    </nav>
                 </div>
             
                 <!-- Container on right that displays city and weather -->
-                <div class="col-md-8">
+                <div class="col-md-8" id="boxOne">
                     <main class="card" id="weather-box">
                         <h3 id="city-name"></h3>
                             <div id="city-info">
