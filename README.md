@@ -12,6 +12,7 @@ Creating and adjusting cards
 Using moment.js and UNIX timestamps
 break()
 event.target
+Multiple CSS adjustments in JS
 
 
 # Description

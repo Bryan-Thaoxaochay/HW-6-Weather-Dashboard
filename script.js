@@ -114,7 +114,7 @@ $(".button").click(function () {
                 $("#five-day").append(figure);
                 $(figure).attr("class", "card text-white bg-primary");
                 $(figure).attr("style", "width: 8rem;");
-                $(figure).attr("style", "display: inline-block");
+                $(figure).css({"display": "inline-block", "font-size": "medium", "text-align": "center", "margin": "10px"});
 
 
                 
@@ -271,7 +271,7 @@ $("#nav").click(function (event) {
                 $("#five-day").append(figure);
                 $(figure).attr("class", "card text-white bg-primary");
                 $(figure).attr("style", "width: 8rem;");
-                $(figure).attr("style", "display: inline-block");
+                $(figure).css({"display": "inline-block", "font-size": "medium", "text-align": "center", "margin": "10px"});
 
 
                 
@@ -422,8 +422,7 @@ function loadLocalStorage() {
                 $("#five-day").append(figure);
                 $(figure).attr("class", "card text-white bg-primary");
                 $(figure).attr("style", "width: 8rem;");
-                $(figure).attr("style", "display: inline-block");
-
+                $(figure).css({"display": "inline-block", "font-size": "medium", "text-align": "center", "margin": "10px"});
 
                 
                 var dailyDate = moment(onecall.daily[i].dt * 1000).format("MM / DD / YY");
