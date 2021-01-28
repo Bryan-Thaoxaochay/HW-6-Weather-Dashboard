@@ -7,3 +7,8 @@
 h2 {
     font-size: x-large;
 }
+
+.btn {
+    background-color: lightblue;
+    color: black;
+}
