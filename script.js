@@ -2,7 +2,7 @@ $(".button").click(function () {
 
     var city = $("#searchBox").val().trim();
     var capitalCity = city.charAt(0).toUpperCase() + city.slice(1);
-    var weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=6b8354596eeef05a9add5fcdc34efb38";
+    var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=6b8354596eeef05a9add5fcdc34efb38";
 
 
     // Ajax Call: API for longitude and latitude
@@ -16,7 +16,7 @@ $(".button").click(function () {
         var latitude = weather.coord.lat;
         var longitude = weather.coord.lon;
 
-        var onecallURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=6b8354596eeef05a9add5fcdc34efb38";
+        var onecallURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=6b8354596eeef05a9add5fcdc34efb38";
 
 
 
@@ -67,7 +67,7 @@ $(".button").click(function () {
 
             // Attaching icon
             var iconEl = $("<img>");
-            var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
             var cityIcon = $(iconEl).attr("src", iconURL);
             $(date).append(cityIcon);
 
@@ -126,7 +126,7 @@ $(".button").click(function () {
                 var dailyHumidity = $("<p>").html("Humidity: " + onecall.daily[i].humidity + "%");
 
                 var futureiconEl = $("<img>");
-                var futureiconURL = "http://openweathermap.org/img/wn/" + dailyIcon + "@2x.png";
+                var futureiconURL = "https://openweathermap.org/img/wn/" + dailyIcon + "@2x.png";
                 var futurecityIcon = $(futureiconEl).attr("src", futureiconURL);
 
                 $(figure).append(dailyDate);
@@ -159,7 +159,7 @@ $("#nav").click(function (event) {
     console.log("event: ", event.target);
     var searchHistory = $(event.target).text();
 
-    var navURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchHistory + "&appid=6b8354596eeef05a9add5fcdc34efb38";
+    var navURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchHistory + "&appid=6b8354596eeef05a9add5fcdc34efb38";
 
     // Ajax Call: API for longitude and latitude
     $.ajax({
@@ -172,7 +172,7 @@ $("#nav").click(function (event) {
         var latitude = weather.coord.lat;
         var longitude = weather.coord.lon;
 
-        var onecallURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=6b8354596eeef05a9add5fcdc34efb38";
+        var onecallURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=6b8354596eeef05a9add5fcdc34efb38";
 
 
 
@@ -223,7 +223,7 @@ $("#nav").click(function (event) {
 
             // Attaching icon
             var iconEl = $("<img>");
-            var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
             var cityIcon = $(iconEl).attr("src", iconURL);
             $(date).append(cityIcon);
 
@@ -283,7 +283,7 @@ $("#nav").click(function (event) {
                 var dailyHumidity = $("<p>").html("Humidity: " + onecall.daily[i].humidity + "%");
 
                 var futureiconEl = $("<img>");
-                var futureiconURL = "http://openweathermap.org/img/wn/" + dailyIcon + "@2x.png";
+                var futureiconURL = "https://openweathermap.org/img/wn/" + dailyIcon + "@2x.png";
                 var futurecityIcon = $(futureiconEl).attr("src", futureiconURL);
 
                 $(figure).append(dailyDate);
@@ -311,7 +311,7 @@ function loadLocalStorage() {
     var lastCity = localStorage.getItem("storingCity");
     console.log(lastCity);
 
-    var navURL = "http://api.openweathermap.org/data/2.5/weather?q=" + lastCity + "&appid=6b8354596eeef05a9add5fcdc34efb38";
+    var navURL = "https://api.openweathermap.org/data/2.5/weather?q=" + lastCity + "&appid=6b8354596eeef05a9add5fcdc34efb38";
 
     // Ajax Call: API for longitude and latitude
     $.ajax({
@@ -324,7 +324,7 @@ function loadLocalStorage() {
         var latitude = weather.coord.lat;
         var longitude = weather.coord.lon;
 
-        var onecallURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=6b8354596eeef05a9add5fcdc34efb38";
+        var onecallURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=6b8354596eeef05a9add5fcdc34efb38";
 
 
 
@@ -375,7 +375,7 @@ function loadLocalStorage() {
 
             // Attaching icon
             var iconEl = $("<img>");
-            var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
             var cityIcon = $(iconEl).attr("src", iconURL);
             $(date).append(cityIcon);
 
@@ -433,7 +433,7 @@ function loadLocalStorage() {
                 var dailyHumidity = $("<p>").html("Humidity: " + onecall.daily[i].humidity + "%");
 
                 var futureiconEl = $("<img>");
-                var futureiconURL = "http://openweathermap.org/img/wn/" + dailyIcon + "@2x.png";
+                var futureiconURL = "https://openweathermap.org/img/wn/" + dailyIcon + "@2x.png";
                 var futurecityIcon = $(futureiconEl).attr("src", futureiconURL);
 
                 $(figure).append(dailyDate);
