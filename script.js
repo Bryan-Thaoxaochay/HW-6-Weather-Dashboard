@@ -12,7 +12,7 @@
 // THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity - NEED DATE
 
 // WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
+// THEN I am again presented with current and future conditions for that city - NEED TO ADD ONCLICK FUNCTION OF CITY BUTTONS
 
 // WHEN I open the weather dashboard
 // THEN I am presented with the last searched city forecast - NEED TO ADD WEATHER INFO
@@ -122,12 +122,19 @@ $(".button").click(function () {
 
                     $("#five-day").empty(); // Removes previous cities forecast
 
+                    $("#five-day").html("<h4> 5-Day Forecast");
+
                     for (var i = 0; i < onecall.daily.length; i++) {
 
                         var figure = $("<figure>");
                         $("#five-day").append(figure);
                         $(figure).attr("class", "card text-white bg-primary");
                         $(figure).attr("style", "width: 8rem;");
+
+                        var parseDate = toString(onecall.daily[i].sunrise);
+                        console.log(parseDate);
+                        var dailyDate = moment(parseDate).format("MM / DD / YY"); // Invalid Date
+                        console.log(onecall.daily[i].sunrise); // Brings back different values
 
                         var dailyIcon = onecall.daily[i].weather[0].icon;
                         var dailyTempK = onecall.daily[i].temp.day;
@@ -139,6 +146,7 @@ $(".button").click(function () {
                         var futureiconURL = "http://openweathermap.org/img/wn/" + dailyIcon + "@2x.png";
                         var futurecityIcon = $(futureiconEl).attr("src", futureiconURL);
 
+                        $(figure).append(dailyDate);
                         $(figure).append(futurecityIcon);
                         $(figure).append(dailyTempF);
                         $(figure).append(dailyHumidity);
@@ -164,16 +172,12 @@ $(".button").click(function () {
         }) // First Ajax Call        
 }) // Button Function
 
-// function loadLocalStorage() {
+function loadLocalStorage() {
 
-//     // Append search history and the local storage
-//     var storingCity = $("#searchBox").val();
-//     localStorage.setItem("storingCity", storingCity);
-
-//     for (var i = 0; i < localStorage.length; i++) {
-//         var storedCity = localStorage.getItem("storingCity");
-//         var cityTR = $("<button>");
-//         var cityText = cityTR.html(storedCity);
-//         $("#nav").append(cityText);
-//     }
-// }
+    for (var i = 0; i < localStorage.length; i++) {
+        var storedCity = localStorage.getItem("storingCity");
+        var cityTR = $("<button>");
+        var cityText = cityTR.html(storedCity);
+        $("#nav").append(cityText);
+    }
+}
