@@ -40,5 +40,7 @@ Entering the website, the user can enter any city into the search box. After pre
 
 ## Webpage URL
 
+https://bryan-thaoxaochay.github.io/HW-6-Weather-Dashboard/
+
 ## Github Repo
 https://github.com/Bryan-Thaoxaochay/HW-6-Weather-Dashboard 
