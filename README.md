@@ -1,8 +1,25 @@
-# HW-6-Weather-Dashboard
+Weather-Dashboard
 
-# Purpose
+# Description
 
-The purpose of this assignment was to create a weather website that can retrieve the weather info of the city searched through the API.
+When the user enters a city, the weather and 5-day forecast will appear.
+
+# Technologies Used
+
+HTML5, CSS3, Bootstrap3, JavaScript, jQuery, Openweather API, AJAX, local storage
+
+# Screenshots
+
+![](images/HW6-Screenshot.png)
+
+# Links
+
+## Webpage URL
+
+https://bryan-thaoxaochay.github.io/HW-6-Weather-Dashboard/
+
+## Github Repo
+https://github.com/Bryan-Thaoxaochay/HW-6-Weather-Dashboard 
 
 # What I Learned
 
@@ -28,19 +45,7 @@ The purpose of this assignment was to create a weather website that can retrieve
 7. Multiple CSS adjustments in JS
     After all the hard work, I learned that we can make multiple CSS edits through this syntax: .css({"": "", "":""});
 
-# Description
+# Contact Information
 
-Entering the website, the user can enter any city into the search box. After pressing search, the city, date, and the weather information will display in the card on the top right. Along with that, the 5-day forecast will appear below with each day in it's own card. Finally, the searched city will appear below the search box in the designated search history area.
-
-# Screenshots
-
-![](images/HW6-Screenshot.png)
-
-# Links
-
-## Webpage URL
-
-https://bryan-thaoxaochay.github.io/HW-6-Weather-Dashboard/
-
-## Github Repo
-https://github.com/Bryan-Thaoxaochay/HW-6-Weather-Dashboard 
+Email: bthaoxaochay@gmail.com
+GitHub: https://github.com/Bryan-Thaoxaochay 
